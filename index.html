@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shourya | Video Editor Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:92%;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(12px);
+      background:rgba(0,0,0,0.45);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 0;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:800;
+    }
+
+    .logo span{
+      color:#ff5a1f;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:35px;
+      color:#cfcfcf;
+      font-size:14px;
+    }
+
+    .hire-btn{
+      background:white;
+      color:black;
+      padding:12px 24px;
+      border-radius:999px;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    .hire-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:40px 0;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 2fr 1fr;
+      gap:22px;
+    }
+
+    .card{
+      background:#111;
+      border-radius:28px;
+      padding:28px;
+      border:1px solid rgba(255,255,255,0.05);
+      overflow:hidden;
+    }
+
+    .dark-card{
+      background:#0d0d0d;
+    }
+
+    .orange-card{
+      background:linear-gradient(135deg,#ff5a1f,#ff2d2d);
+      color:black;
+    }
+
+    .mini-title{
+      font-size:12px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#8d8d8d;
+      margin-bottom:18px;
+    }
+
+    .featured{
+      font-size:72px;
+      line-height:1;
+      font-weight:900;
+      color:#ff5a1f;
+    }
+
+    .main-hero{
+      min-height:460px;
+      display:flex;
+      align-items:flex-end;
+
+      background:
+      linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.15)),
+      url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-content h1{
+      font-size:96px;
+      line-height:0.9;
+      margin-bottom:18px;
+      font-weight:900;
+    }
+
+    .hero-content p{
+      max-width:620px;
+      color:#d0d0d0;
+      line-height:1.8;
+      font-size:17px;
+    }
+
+    .orange-dot{
+      color:#ff5a1f;
+    }
+
+    .stat{
+      font-size:88px;
+      line-height:1;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .stat.orange{
+      color:#ff5a1f;
+    }
+
+    .stat-desc{
+      color:#bdbdbd;
+      line-height:1.7;
+    }
+
+    .second-grid{
+      display:grid;
+      grid-template-columns:2fr 1.5fr 1fr;
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .about-text{
+      font-size:21px;
+      line-height:1.8;
+      color:#ececec;
+    }
+
+    .highlight{
+      color:#ff5a1f;
+      font-weight:700;
+    }
+
+    .small-bio{
+      margin-top:22px;
+      color:#9f9f9f;
+      line-height:1.8;
+    }
+
+    .tool-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .tool{
+      background:#171717;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.05);
+      font-weight:600;
+    }
+
+    .signature{
+      font-size:21px;
+      line-height:1.7;
+      color:#ececec;
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:90px 0;
+    }
+
+    .section-tag{
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#8f8f8f;
+      margin-bottom:14px;
+    }
+
+    .section h2{
+      font-size:58px;
+      line-height:1.1;
+      margin-bottom:50px;
+    }
+
+    /* SERVICES */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+    }
+
+    .service-card{
+      background:#101010;
+      padding:35px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.3s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-6px);
+      border-color:#ff5a1f;
+    }
+
+    .service-card h3{
+      margin-bottom:14px;
+      font-size:22px;
+    }
+
+    .service-card p{
+      color:#a5a5a5;
+      line-height:1.7;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:24px;
+    }
+
+    .video-card{
+      background:#0f0f0f;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+      transition:0.4s;
+    }
+
+    .video-card:hover{
+      transform:translateY(-5px);
+      border-color:#ff5a1f;
+    }
+
+    .video-card iframe{
+      width:100%;
+      height:260px;
+      border:none;
+      display:block;
+      background:black;
+    }
+
+    .video-info{
+      padding:24px;
+    }
+
+    .video-info h3{
+      font-size:23px;
+      margin-bottom:8px;
+    }
+
+    .video-info p{
+      color:#a5a5a5;
+      line-height:1.7;
+    }
+
+    /* CONTACT */
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .contact-card{
+      background:#101010;
+      padding:40px;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    input,
+    textarea{
+      width:100%;
+      background:#171717;
+      border:none;
+      outline:none;
+      padding:18px;
+      border-radius:16px;
+      color:white;
+      margin-bottom:18px;
+      font-family:inherit;
+    }
+
+    textarea{
+      min-height:150px;
+      resize:none;
+    }
+
+    button{
+      width:100%;
+      border:none;
+      padding:18px;
+      border-radius:16px;
+      background:linear-gradient(135deg,#ff5a1f,#ff2d2d);
+      color:white;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .socials{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .socials a{
+      color:#d0d0d0;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      color:#ff5a1f;
+    }
+
+    footer{
+      padding:40px 0;
+      text-align:center;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.05);
+      margin-top:80px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1100px){
+
+      .hero-grid,
+      .second-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-content h1{
+        font-size:62px;
+      }
+
+      .section h2{
+        font-size:42px;
+      }
+    }
+
+    @media(max-width:700px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero-content h1{
+        font-size:48px;
+      }
+
+      .featured{
+        font-size:54px;
+      }
+
+      .stat{
+        font-size:62px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="container nav-inner">
+
+      <div class="logo">
+        <span>●</span> Shourya.
+      </div>
+
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#contact" class="hire-btn">
+        Hire Me ↗
+      </a>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero container">
+
+    <div class="hero-grid">
+
+      <!-- LEFT -->
+
+      <div style="display:flex;flex-direction:column;gap:22px;">
+
+        <div class="card dark-card">
+
+          <div class="mini-title">
+            Available
+          </div>
+
+          <div class="featured">
+            Featured
+          </div>
+
+          <p style="margin-top:18px;color:#9f9f9f;">
+            Open for creative collaborations
+          </p>
+
+        </div>
+
+        <div class="card orange-card">
+
+          <div class="mini-title">
+            Total Reach
+          </div>
+
+          <div class="stat">
+            100K+
+          </div>
+
+          <p>
+            Views generated through visual storytelling
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CENTER -->
+
+      <div class="card main-hero">
+
+        <div class="hero-content">
+
+          <div class="mini-title">
+            Video Editor • Creative Designer • Motion Visuals
+          </div>
+
+          <h1>
+            Shourya<span class="orange-dot">.</span>
+          </h1>
+
+          <p>
+            I’m a creative editor focused on cinematic visuals,
+            short-form content, and engaging digital storytelling.
+            Alongside editing, I’m exploring design, Python,
+            and machine learning to merge creativity with technology.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div style="display:flex;flex-direction:column;gap:22px;">
+
+        <div class="card dark-card">
+
+          <div class="mini-title">
+            Experience
+          </div>
+
+          <div class="stat orange">
+            2+
+          </div>
+
+          <div class="stat-desc">
+            Years of editing and creative work
+          </div>
+
+        </div>
+
+        <div class="card dark-card">
+
+          <div class="mini-title">
+            Projects
+          </div>
+
+          <div class="stat">
+            50+
+          </div>
+
+          <div class="stat-desc">
+            Videos and creative projects completed
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECOND GRID -->
+
+    <div class="second-grid">
+
+      <div class="card dark-card" id="about">
+
+        <div class="mini-title">
+          About
+        </div>
+
+        <div class="about-text">
+          Creating <span class="highlight">cinematic edits</span>,
+          motion graphics, and engaging short-form visuals
+          designed to hold attention and tell stories.
+        </div>
+
+        <div class="small-bio">
+          Specialized in reels, AMVs, event coverage,
+          color grading, and cinematic motion visuals.
+        </div>
+
+      </div>
+
+      <div class="card dark-card">
+
+        <div class="mini-title">
+          Toolkit
+        </div>
+
+        <div class="tool-grid">
+
+          <div class="tool">Premiere Pro</div>
+          <div class="tool">After Effects</div>
+          <div class="tool">DaVinci Resolve</div>
+          <div class="tool">Canva Pro</div>
+
+        </div>
+
+      </div>
+
+      <div class="card dark-card">
+
+        <div class="mini-title">
+          Achievement
+        </div>
+
+        <div class="signature">
+          High-retention edits and cinematic visuals across multiple creative projects.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="section container" id="services">
+
+    <div class="section-tag">
+      Services
+    </div>
+
+    <h2>
+      Creative Services.
+    </h2>
+
+    <div class="services">
+
+      <div class="service-card">
+        <h3>YouTube Editing</h3>
+        <p>Long-form storytelling edits optimized for engagement.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Short-form Content</h3>
+        <p>Reels, TikToks, and Shorts built for retention.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Motion Graphics</h3>
+        <p>Dynamic motion visuals and creative animations.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Color Grading</h3>
+        <p>Professional cinematic color treatment and mood.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>AMV Editing</h3>
+        <p>Fast-paced anime edits with cinematic transitions.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Event Coverage</h3>
+        <p>Cinematic event visuals and live storytelling.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PORTFOLIO -->
+
+  <section class="section container" id="work">
+
+    <div class="section-tag">
+      Portfolio
+    </div>
+
+    <h2>
+      Selected Visual Work.
+    </h2>
+
+    <div class="portfolio-grid">
+
+      <!-- Motion Graphics -->
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/1w3KPjeS4gmzyaHyTwks2DzBZ5od_DPs8/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Motion Graphics</h3>
+          <p>Dynamic cinematic motion visual edit.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/1UtrBmRsXOoaFrjP7j83Nq8kagxr9Er4u/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Motion Graphics</h3>
+          <p>Creative animated storytelling sequence.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/1nF-EcpfMGbQKlgC-_KpnyTCV9p5NDh95/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Motion Graphics</h3>
+          <p>Smooth cinematic visual effects.</p>
+        </div>
+
+      </div>
+
+      <!-- Color Grade -->
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/1mVnu2IqLrhWyxgrfFVMU9PkGst27TrSW/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Color Grading</h3>
+          <p>Professional cinematic mood grading.</p>
+        </div>
+
+      </div>
+
+      <!-- AMV -->
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/10hentn13gFAZHgdaj7ao7cwbhX0ZXrat/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>AMV Edit</h3>
+          <p>High-energy anime motion edit.</p>
+        </div>
+
+      </div>
+
+      <!-- Event Coverage -->
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/19xwkF803IzSfMPV8skH8iJhCryRhKXgm/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Event Coverage</h3>
+          <p>Cinematic event storytelling visuals.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/18N5CfFcNcm_8RzT7Uag7UcPQ5WU0H3pn/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Event Coverage</h3>
+          <p>Professional live event coverage edit.</p>
+        </div>
+
+      </div>
+
+      <!-- Reels -->
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/1kkZ_1jWnoCU3M372XdXaHr8wlkA7KTt5/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Short-form Reel</h3>
+          <p>Retention-focused social media reel.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+        <iframe
+          src="https://drive.google.com/file/d/1blpxyIvb2Hm1_6rIiW9qpakaoyff8hEE/preview?usp=sharing"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+          <h3>Short-form Reel</h3>
+          <p>Fast-paced engaging visual storytelling.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="section container" id="contact">
+
+    <div class="section-tag">
+      Contact
+    </div>
+
+    <h2>
+      Let’s Create Something Cinematic.
+    </h2>
+
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+
+      <div class="contact-card">
+
+        <h3 style="font-size:30px;margin-bottom:20px;">
+          Contact Information
+        </h3>
+
+        <p style="color:#b6b6b6;line-height:1.8;">
+          Available for freelance editing,
+          visual storytelling, and creative collaborations.
+        </p>
+
+        <div class="socials">
+
+          <a href="mailto:fshourjomm@gmail.com">
+            Email → fshourjomm@gmail.com
+          </a>
+
+          <a href="https://www.instagram.com/shourjazz" target="_blank">
+            Instagram
+          </a>
+
+          <a href="https://www.linkedin.com/in/fardin-monowar-shourja-068a99224"
+            target="_blank">
+            LinkedIn
+          </a>
+
+          <a href="https://www.facebook.com/share/1Hb7eE8erQ/?mibextid=wwXIfr"
+            target="_blank">
+            Facebook
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="contact-card">
+
+        <form action="https://formsubmit.co/fshourjomm@gmail.com"
+          method="POST">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required>
+
+          <textarea
+            name="message"
+            placeholder="Your Message"></textarea>
+
+          <button type="submit">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Shourya. All rights reserved.
+  </footer>
+
+</body>
+
+</html>
